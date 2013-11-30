@@ -3,6 +3,11 @@ var sha = require('./sha')
 var sha256 = require('./sha256')
 var rng = require('./rng')
 var md5 = require('./md5')
+var dh = require('./dh')
+
+exports.createDiffieHellman = dh.createDiffieHellman;
+exports.getDiffieHellman = dh.getDiffieHellman;
+exports.DiffieHellman = dh.DiffieHellman;
 
 var algorithms = {
   sha1: sha,
@@ -89,7 +94,6 @@ each(['createCredentials'
 , 'createDecipheriv'
 , 'createSign'
 , 'createVerify'
-, 'createDiffieHellman'
 , 'pbkdf2'], function (name) {
   exports[name] = function () {
     error('sorry,', name, 'is not implemented yet')
